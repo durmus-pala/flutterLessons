@@ -22,6 +22,9 @@ class ListViewKullanimi extends StatelessWidget {
                   ? Colors.orange.shade100
                   : Colors.purple.shade100,
               child: ListTile(
+                onLongPress: () {
+                  _alertDialogIslemleri(context, oAnkiOgrenci);
+                },
                 onTap: () {
                   print("eleman tıklandı : ${index + 1}");
                 },
@@ -50,6 +53,37 @@ class ListViewKullanimi extends StatelessWidget {
           .toList(),
     );
   }
+
+  _alertDialogIslemleri(BuildContext myContext, Ogrenci secilen) {
+    showDialog(
+        context: myContext,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(secilen.toString()),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: [
+                  Text('Durmus' * 100),
+                  Text('Durmus1' * 100),
+                  Text('Durmus2' * 100),
+                ],
+              ),
+            ),
+            actions: [
+              ButtonBar(
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('KAPAT')),
+                  TextButton(onPressed: () {}, child: Text('TAMAM')),
+                ],
+              )
+            ],
+          );
+        });
+  }
 }
 
 class Ogrenci {
@@ -58,4 +92,10 @@ class Ogrenci {
   final String soyisim;
 
   Ogrenci(this.id, this.isim, this.soyisim);
+
+  @override
+  String toString() {
+    // TODO: implement toString
+    return 'İsim: $isim  Soyisim: $soyisim id: $id';
+  }
 }
