@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inputs/text_form_field.dart';
+import 'package:flutter_inputs/global_key_kullanimi.dart';
+//import 'package:flutter_inputs/text_form_field.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TextFormWidgetKullanimi(),
+      home: GlobalKeyKullanimi(),
     );
   }
 }
