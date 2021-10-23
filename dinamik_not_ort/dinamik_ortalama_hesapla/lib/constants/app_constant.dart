@@ -9,7 +9,7 @@ class Sabitler {
     fontWeight: FontWeight.w900,
     color: anaRenk,
   );
-  static BorderRadius borderRadius = BorderRadius.circular(24);
+  static BorderRadius borderRadius = BorderRadius.circular(16);
 
   static final TextStyle dersSayisiStyle = GoogleFonts.quicksand(
     fontSize: 16,
@@ -22,4 +22,8 @@ class Sabitler {
     fontWeight: FontWeight.w800,
     color: anaRenk,
   );
+  static EdgeInsets dropDownPadding =
+      EdgeInsets.symmetric(horizontal: 16, vertical: 8);
+
+  static final yatayPadding8 = EdgeInsets.symmetric(horizontal: 8);
 }
