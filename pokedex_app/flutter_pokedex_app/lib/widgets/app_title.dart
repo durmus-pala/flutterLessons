@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pokedex_app/constants/constants.dart';
+import 'package:flutter_pokedex_app/constants/ui_helper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTitle extends StatefulWidget {
@@ -13,24 +14,32 @@ class _AppTitleState extends State<AppTitle> {
   String pokeballImageUrl = 'images/pokeball.png';
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              Constants.title,
-              style: Constants.getTitleStyle(),
-            )),
-        Align(
-          alignment: Alignment.topRight,
-          child: Image.asset(
-            pokeballImageUrl,
-            width: 100.w,
-            height: 100.h,
-            fit: BoxFit.fitWidth,
+    return SizedBox(
+      height: UIHelper.getAppTitleWidgetHeight(),
+      child: Stack(
+        children: [
+          Padding(
+            padding: UIHelper.getDefaultPadding(),
+            child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  Constants.title,
+                  style: Constants.getTitleStyle(),
+                )),
           ),
-        )
-      ],
+          Align(
+            alignment: Alignment.topRight,
+            child: Image.asset(
+              pokeballImageUrl,
+              width: ScreenUtil().orientation == Orientation.portrait
+                  ? 0.2.sh
+                  : 0.2.sw,
+              height: 100.h,
+              fit: BoxFit.fitWidth,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
