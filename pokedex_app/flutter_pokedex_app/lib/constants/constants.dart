@@ -18,7 +18,7 @@ class Constants {
     return TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,
-        fontSize: _calculateFontSize(30));
+        fontSize: _calculateFontSize(24));
   }
 
   static TextStyle getTypeChipStyle() {
@@ -31,5 +31,16 @@ class Constants {
     } else {
       return (size * 1.5).sp;
     }
+  }
+
+  static getPokeInfoTextStyle() {
+    return TextStyle(fontSize: _calculateFontSize(16), color: Colors.black);
+  }
+
+  static getPokeInfoLabelTextStyle() {
+    return TextStyle(
+        fontSize: _calculateFontSize(20),
+        fontWeight: FontWeight.bold,
+        color: Colors.black);
   }
 }
